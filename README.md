@@ -1,2 +1,2 @@
-# Starter-ionic
+# IHM-IONIC-Project
 
