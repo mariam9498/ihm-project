@@ -22,6 +22,11 @@ export class HomePage implements OnInit {
     await this.router.navigate(['user-detail', id]);
   }
 
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('login');
+  }
+
   ngOnInit(): void {
     this.userList$ = this.userService.getUserList();
   }
