@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { User } from 'src/app/home/user-list/user.interface';
+import { UserService } from 'src/app/api/user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -15,9 +15,17 @@ export class UserListComponent implements OnInit {
   @Output()
   selectedUser = new EventEmitter<number>();
 
-  constructor() { }
 
+  constructor(
+    public userService: UserService
+  ){}
+
+  async deletedUser(id: number){
+    this.userService.deleteUser(id)
+  }
   ngOnInit() {
   }
+
+  
 
 }
