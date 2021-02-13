@@ -27,5 +27,7 @@ export class UserDetailPage implements OnInit {
     this.selectedUserId = this.actRoute.snapshot.params.id;
     this.userDetail$ = this.userService.getUserDetail(this.selectedUserId);
   }
-
+  deleteUser(){
+    this.userDetail$ = this.userService.deleteUser(this.selectedUserId);
+  }
 }

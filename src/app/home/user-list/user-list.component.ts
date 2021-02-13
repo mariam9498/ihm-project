@@ -20,7 +20,7 @@ export class UserListComponent implements OnInit {
     public userService: UserService
   ){}
 
-  async deletedUser(id: number){
+  deletedUser(id: number){
     this.userService.deleteUser(id)
   }
   ngOnInit() {
