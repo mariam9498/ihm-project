@@ -28,6 +28,7 @@ export class LoginPage implements OnInit, OnDestroy {
   seConnecter() {
     this.login$ = this.userService.login(this.email, this.password).subscribe(
       async isLoggued => {
+        console.log(isLoggued);
         if (isLoggued) {
           await this.router.navigateByUrl('home');
         }

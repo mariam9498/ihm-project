@@ -6,6 +6,7 @@ import { UserListComponent } from 'src/app/home/user-list/user-list.component';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import {AddUserFormComponent} from './add-user-form/add-user-form.component';
 
 
 @NgModule({
@@ -15,6 +16,6 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, UserListComponent]
+  declarations: [HomePage, UserListComponent, AddUserFormComponent]
 })
 export class HomePageModule {}

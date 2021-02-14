@@ -12,6 +12,7 @@ import { User } from 'src/app/home/user-list/user.interface';
 export class HomePage implements OnInit {
 
   userList$: Observable<any>;
+  show: string;
 
   constructor(
     public router: Router,
