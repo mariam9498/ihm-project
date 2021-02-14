@@ -15,21 +15,25 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button id="list-users" expand="full" (click)="show='users'">
+        <ion-button  class="button" id="list-users" expand="full" (click)="show='users'">
           List users
-          <ion-icon slot="end" name="log-in-outline"></ion-icon>
+          <ion-icon slot="end" name="list"></ion-icon>
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button id="list-resources" expand="full" (click)="show='add-user'">
+        <ion-button  class="button" id="list-resources" expand="full" (click)="show='add-user'">
           Add User
-          <ion-icon slot="end" name="log-in-outline"></ion-icon>
+          <ion-icon slot="end" name="add"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
-    <ion-row [ngSwitch]="show">
-      <app-add-user-form *ngSwitchCase="'add-user'" ></app-add-user-form>
-      <app-user-list *ngSwitchDefault [userList]="userList$ | async" (selectedUser)="selectedUser($event)"></app-user-list>
+    <ion-row [ngSwitch]="show" >
+      <ion-col *ngSwitchCase="'add-user'">
+        <app-add-user-form></app-add-user-form>
+      </ion-col>
+      <ion-col *ngSwitchDefault>
+        <app-user-list [userList]="userList$ | async" (selectedUser)="selectedUser($event)"></app-user-list>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

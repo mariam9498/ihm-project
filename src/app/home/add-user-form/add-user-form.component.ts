@@ -27,12 +27,11 @@ export class AddUserFormComponent implements OnInit, OnDestroy {
   addUser(){
     this.newUser$ = this.userService.addUser(this.name, this.job).subscribe(
         async isCreated => {
-          console.log(isCreated);
           let alert;
           if (isCreated){
             alert = await this.alertCtrl.create({
               header: 'Alert',
-              message: 'User successfuly created',
+              message: 'User successfuly',
               buttons: ['OK']
             });
             await alert.present();
@@ -51,6 +50,7 @@ export class AddUserFormComponent implements OnInit, OnDestroy {
 }
 
   ngOnDestroy(): void {
-    this.newUser$.unsubscribe();
+    if (this.newUser$){
+      this.newUser$.unsubscribe(); }
   }
 }
