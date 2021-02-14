@@ -49,4 +49,11 @@ export class UserService {
     const priceRef = 12;
     return price < priceRef;
   }
+
+  deleteUser(id: number){
+    console.log("HTTP DELETE : Deleting user "+ id)
+    return this.httpApi.delete(`https://reqres.in/api/users/${id}`).pipe(
+      map((response: any) => response?.data)
+    );
+  }
 }
