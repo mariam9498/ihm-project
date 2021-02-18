@@ -35,8 +35,25 @@ export class UserService {
     );
   }
 
+  addUser(name: string, job: string): Observable<boolean>{
+    return this.httpApi.post('https://reqres.in/api/users', {
+      name,
+      job
+    }).pipe(
+        map((response: any) => !!response?.createdAt),
+        catchError(() => of(false))
+    );
+  }
+
   isMinPrice(price: number): boolean {
     const priceRef = 12;
     return price < priceRef;
+  }
+
+  deleteUser(id: number){
+    console.log("HTTP DELETE : Deleting user "+ id)
+    return this.httpApi.delete(`https://reqres.in/api/users/${id}`).pipe(
+      map((response: any) => response?.data)
+    );
   }
 }

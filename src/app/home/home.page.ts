@@ -12,6 +12,7 @@ import { User } from 'src/app/home/user-list/user.interface';
 export class HomePage implements OnInit {
 
   userList$: Observable<any>;
+  show: string;
 
   constructor(
     public router: Router,
@@ -20,6 +21,11 @@ export class HomePage implements OnInit {
 
   async selectedUser(id: number) {
     await this.router.navigate(['user-detail', id]);
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('login');
   }
 
   ngOnInit(): void {

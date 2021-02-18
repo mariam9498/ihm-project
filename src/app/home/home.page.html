@@ -1,8 +1,15 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
     <ion-title>
       Home
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+
+
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +19,28 @@
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-user-list [userList]="userList$ | async" (selectedUser)="selectedUser($event)"></app-user-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button  class="button" id="list-users" expand="full" (click)="show='users'">
+          List users
+          <ion-icon slot="end" name="list"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button  class="button" id="list-resources" expand="full" (click)="show='add-user'">
+          Add User
+          <ion-icon slot="end" name="add"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row [ngSwitch]="show" >
+      <ion-col *ngSwitchCase="'add-user'">
+        <app-add-user-form></app-add-user-form>
+      </ion-col>
+      <ion-col *ngSwitchDefault>
+        <app-user-list [userList]="userList$ | async" (selectedUser)="selectedUser($event)"></app-user-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

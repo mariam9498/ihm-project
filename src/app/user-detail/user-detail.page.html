@@ -1,6 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>User Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>
+      User detail
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="logout()">Logout
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,5 +26,10 @@
       </ion-item>
       <p>{{user.email}}</p>
     </ion-card-content>
+
+  <ion-button shape="round" color="dark" (click)="deleteUser()">
+    <ion-icon name="trash-outline"></ion-icon>
+  </ion-button>
+  
   </ion-card>
 </ion-content>
